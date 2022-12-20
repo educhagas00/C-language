@@ -9,9 +9,7 @@ int main()
     scanf("%d", &n);
     
     int vet[n];
-    
-    
-    
+   
     for(int i = 0; i < n; i++)
     {
         scanf("%d", &vet[i]);
