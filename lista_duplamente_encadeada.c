@@ -24,7 +24,16 @@ int main()
     lst = lst_insere(lst, 21);
     lst = lst_insere(lst, 30);
 
-    lst_remove(lst, 2312);
+    if(lst_busca(lst, 21) != NULL)
+    {
+        printf("elemento encontrado!\n\n");
+    }
+    else
+    {
+        printf("elemento nao encontrado\n\n");
+    }
+
+    lst_remove(lst, 4);
 
     lst_imprime(lst);
     
@@ -65,15 +74,14 @@ Lista2* lst_imprime(Lista2* lst)
 Lista2* lst_busca(Lista2* lst, int val)
 {
     Lista2* p;
-    for(p = lst; p != NULL; p = p->prox);
+    for(p = lst; p != NULL; p = p->prox)
     {
         if(p->info == val)
         {
-            printf("elemento %d encontrado!", val);
+            
             return p;
         }
     }
-    printf("elemento %d nao encontrado.", val);
     return NULL;    
 }
 
@@ -98,6 +106,7 @@ Lista2* lst_remove(Lista2* lst, int val)
         {
             p->prox->ant = p->ant;
         }
+        
         free(p);
 
         return lst;
